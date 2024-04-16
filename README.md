@@ -27,5 +27,5 @@ To create the input YAML fault properties file, follow these steps:
 ## Note:
 
 - Adjust parameters and configurations in the scripts as needed to suit your specific requirements.
-- For any issues or questions, please refer to the documentation or contact the repository owner.
+- For any issues or questions, please refer to the documentation or contact the repository owner via his professional email (hongyi.su@irsn.fr)
 
