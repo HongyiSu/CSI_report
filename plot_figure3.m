@@ -17,13 +17,25 @@ function plot_figure3(xx, yy, xx_s, yy_s, STA_4, dist2epi, fault_length)
     % Add epicenter, which is the origin (0,0)
     scatter(xx(1)/1000,yy(1)/1000, 150 ,'p', 'filled','MarkerFaceColor','y','MarkerEdgeColor','k');
     hold on
+    % ADD NPPs
+    scatter(xx_s(end-1)/1000,yy_s(end-1)/1000, 100, 'd', 'MarkerFaceColor', 'g','MarkerEdgeColor', 'r');
+    hold on
+   % text((xx_s(end-1))/1000-3,yy_s(end-1)/1000+2, strcat(STA_4(length(xx)-1,3), ' (', num2str(round(dist2epi(length(xx)-1)/1000,2,'significant')),'km' ,')'),"FontSize",10,"FontWeight","normal");
+    scatter(xx_s(end-2)/1000,yy_s(end-2)/1000, 100, 'd', 'MarkerFaceColor', 'b','MarkerEdgeColor', 'r');
+    hold on
+   % text((xx_s(end-2))/1000-3,yy_s(end-2)/1000+2, strcat(STA_4(length(xx)-2,3), ' (', num2str(round(dist2epi(length(xx)-2)/1000,2,'significant')),'km' ,')'),"FontSize",10,"FontWeight","normal");
 
     % Add stations after rotation
-    for(i=2:length(xx)-1)
+    for(i=2:length(xx)-3)
         scatter(xx_s(i)/1000,yy_s(i)/1000, 100, 'v', 'MarkerFaceColor','r','MarkerEdgeColor', 'b');
-        text((xx_s(i))/1000-2,yy_s(i)/1000+1, strcat(STA_4(i,3), ' (', num2str(round(dist2epi(i)/1000,4,'significant')),'km' ,')'),"FontSize",10,"FontWeight","normal");
+        if(i==4)
+            text((xx_s(i))/1000-4,yy_s(i)/1000-1, strcat(STA_4(i,3), ' (', num2str(round(dist2epi(i)/1000,3,'significant')),'km' ,')'),"FontSize",10,"FontWeight","normal");
+        else
+           text((xx_s(i))/1000-2,yy_s(i)/1000+1, strcat(STA_4(i,3), ' (', num2str(round(dist2epi(i)/1000,3,'significant')),'km' ,')'),"FontSize",10,"FontWeight","normal");
+        end
         hold on
     end
+
     % ADD CLAU station
     scatter(xx_s(end)/1000,yy_s(end)/1000, 100, 'v', 'MarkerFaceColor', 'r','MarkerEdgeColor', 'b');
     hold on
@@ -59,5 +71,5 @@ function plot_figure3(xx, yy, xx_s, yy_s, STA_4, dist2epi, fault_length)
     grid on;
     box on;
     % Add a legend
-    legend('Fault','Epicentre','','Virtual Nodes','Location','northwest');
+    legend('Fault','Epicentre','Tricastin NPP','Cruas NPP','Virtual Nodes','Location','northwest');
 end

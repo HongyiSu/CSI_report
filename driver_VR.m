@@ -24,15 +24,17 @@ function [LAT LON dist2epi STA_4 xx yy] = read_mydata(file)
     sncf_sta = string(data2.Station);
     Lat = [44.521, 44.374, 44.636, 44.307, 44.356];
     Lon = [4.669, 4.770, 4.759, 4.689, 4.857];
-    %apprend 14 SNCF stations
-    LAT = [Lat sncf_lat' 44.5263]; 
-    LON = [Lon sncf_lon' 4.6661];
+    Npp_lat = [44.331, 44.632];
+    Npp_lon = [4.731, 4.755];
+    %apprend 14 SNCF stations + NPP
+    LAT = [Lat sncf_lat' Npp_lat 44.5263]; 
+    LON = [Lon sncf_lon' Npp_lon 4.6661];
     [x,y,utmzone] = deg2utm(LAT,LON); % call function deg2utm to convert lat/lon to XY
     xx = x - x(1);
     yy = y - y(1);
     dist2epi = sqrt(xx.^2 + yy.^2);
     sta = ["Epicenter"; "ADHE";"CRU1";"OGLP";"TRI2"];
-    sta_name = [sta; sncf_sta; "CLAU"];
+    sta_name = [sta; sncf_sta; "Tricastin"; "Cruas"; "CLAU"];
     STA_4 = [xx, yy, sta_name, dist2epi];
 end
 
