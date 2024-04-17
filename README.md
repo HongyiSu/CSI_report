@@ -24,6 +24,13 @@ To create the input YAML fault properties file, follow these steps:
 
 4. Ensure that all dependencies are properly installed and configured before executing `sphere_reduced_patches.m`.
 
+## Create Figure 12
+
+### Using `driver_VR.m` as Driver:
+1. **Dependencies:**
+     - `deg2utm.m` (coordinates conversion)
+     - `plot_figure3.m` (for plotting)
+
 ## Note:
 
 - Adjust parameters and configurations in the scripts as needed to suit your specific requirements.
