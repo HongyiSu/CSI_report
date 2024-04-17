@@ -24,7 +24,7 @@ To create the input YAML fault properties file, follow these steps:
 
 4. Ensure that all dependencies are properly installed and configured before executing `sphere_reduced_patches.m`.
 
-## Create Figure 12
+## Reproduce Figure 12 in the CSI report
 
 ### Using `driver_VR.m` as Driver:
 1. **Dependencies:**
